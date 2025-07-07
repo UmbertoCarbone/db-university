@@ -1,0 +1,58 @@
+Modellizzare la struttura di un database per memorizzare tutti i dati riguardanti una università:
+
+sono presenti diversi `Dipartimenti` (es.: Lettere e Filosofia, Matematica, Ingegneria ecc.);
+
+- ogni `Dipartimento` offre più `Corsi di Laurea` (es.: Civiltà e Letterature Classiche, Informatica, Ingegneria Elettronica ecc..)
+  (ONE TO MANY)
+- ogni `Corso di Laurea` prevede diversi `Corsi` (es.: Letteratura Latina, Sistemi Operativi 1, Analisi Matematica 2 ecc.);
+  (ONE TO MANY)
+- ogni `Corso` può essere tenuto da diversi `Insegnanti`;
+  ogni `Corso` prevede più appelli d'`Esame`;
+
+
+ogni `Studente` è iscritto ad un solo `Corso di Laurea`;
+ogni `Studente` può iscriversi a più appelli di `Esame`;
+per ogni appello d'`Esame` a cui lo`Studente` ha partecipato, è necessario memorizzare il voto ottenuto, anche se non sufficiente.
+
+## entità
+
+- Dipartimenti
+- Corsi di Laurea
+- Corsi
+- Insegnanti
+- Esame
+- Studente
+
+## Dipartimenti
+- ID : INT
+- Nome: varchar(50)
+
+## Corsi di Laurea
+- ID : INT
+- Nome: varchar(50)
+- ID_Studente : INT
+- ID_Dipartimenti : INT
+
+## Corsi
+- ID : INT
+- Nome: varchar(50)
+- ID_Corso di Laurea : INT
+- ID_Esame : INT
+- ID_Insegnanti : INT
+- ID_Studente : INT
+
+## Insegnanti
+- Nome: varchar(50)
+
+
+
+## Esame
+Nome: varchar(50)
+
+## Studente
+- Nome: varchar(40)
+- Cognome: varchar(30)
+- età: TINYNT
+- ID_Corso di Laurea: INT
+- ID_Esame : INT
+
