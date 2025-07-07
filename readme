@@ -8,7 +8,7 @@ sono presenti diversi `Dipartimenti` (es.: Lettere e Filosofia, Matematica, Inge
   (ONE TO MANY)
 - ogni `Corso` può essere tenuto da diversi `Insegnanti`;
   ogni `Corso` prevede più appelli d'`Esame`;
-
+(MANY TO MANY)
 
 ogni `Studente` è iscritto ad un solo `Corso di Laurea`;
 ogni `Studente` può iscriversi a più appelli di `Esame`;
@@ -24,27 +24,31 @@ per ogni appello d'`Esame` a cui lo`Studente` ha partecipato, è necessario memo
 - Studente
 
 ## Dipartimenti
-- ID : INT
+- (PK) ID : INT
 - Nome: varchar(50)
+- Indirizzo
 
 ## Corsi di Laurea
-- ID : INT
+- (PK) ID : INT
+- (FK) dipartimenti_id : INT
 - Nome: varchar(50)
-- ID_Studente : INT
-- ID_Dipartimenti : INT
 
 ## Corsi
-- ID : INT
+- (PK)ID : INT
+- (FK)ID_Corso di Laurea : INT
 - Nome: varchar(50)
-- ID_Corso di Laurea : INT
-- ID_Esame : INT
-- ID_Insegnanti : INT
-- ID_Studente : INT
+
 
 ## Insegnanti
 - Nome: varchar(50)
+- Cognome: varchar(50)
+- (FK) corso_id
 
 
+## Corsi_Insegnanti (pivot)
+- (PK) id
+- (FK) corso_id
+- (FK) insegnante_id
 
 ## Esame
 Nome: varchar(50)
@@ -52,7 +56,5 @@ Nome: varchar(50)
 ## Studente
 - Nome: varchar(40)
 - Cognome: varchar(30)
-- età: TINYNT
-- ID_Corso di Laurea: INT
-- ID_Esame : INT
+- (FK) Corso di Laurea_id
 
