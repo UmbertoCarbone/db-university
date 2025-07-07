@@ -51,10 +51,20 @@ per ogni appello d'`Esame` a cui lo`Studente` ha partecipato, è necessario memo
 - (FK) insegnante_id
 
 ## Esame
+-(PK) id
 Nome: varchar(50)
+(FK): corso_id
+
 
 ## Studente
 - Nome: varchar(40)
 - Cognome: varchar(30)
 - (FK) Corso di Laurea_id
+
+## Esame_Studente (pivot)
+- (PK) id
+- voto 
+- (FK) studente_id
+- (FK) esame_id
+
 
