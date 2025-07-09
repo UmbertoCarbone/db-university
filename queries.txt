@@ -55,6 +55,7 @@ select (`id`)
 from departments;
 
 8--
-SELECT *
+SELECT COUNT(*) as total_teachers
 from `teachers`
 where `phone` IS  NULL;
+
